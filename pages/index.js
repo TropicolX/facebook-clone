@@ -13,7 +13,7 @@ export default function Home({ session, posts }) {
 	return (
 		<div className="lg:h-screen bg-gray-100 overflow-hidden">
 			<Head>
-				<title>Facebook</title>
+				<title>Facebook Clone</title>
 			</Head>
 
 			<Header />
