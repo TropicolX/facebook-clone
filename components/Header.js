@@ -5,7 +5,8 @@ import {
 	ChevronDownIcon,
 	HomeIcon,
 	UserGroupIcon,
-	ViewGridIcon,
+	MoonIcon,
+	SunIcon,
 } from "@heroicons/react/solid";
 import {
 	PlayIcon,
@@ -16,11 +17,11 @@ import {
 import HeaderIcon from "./HeaderIcon";
 import { signOut, useSession } from "next-auth/client";
 
-const Header = () => {
+const Header = ({ dark, darkStatus }) => {
 	const [session] = useSession();
 
 	return (
-		<div className="sticky top-0 z-50 bg-white flex items-center justify-between p-2 lg:p-3 shadow-md">
+		<div className="sticky top-0 z-50 bg-white dark:bg-header-gray flex items-center justify-between p-2 lg:p-3 shadow-md">
 			{/** left */}
 			<div className="flex items-center">
 				<Image
@@ -30,10 +31,10 @@ const Header = () => {
 					height={40}
 					layout="fixed"
 				/>
-				<div className="flex ml-2 items-center rounded-full bg-gray-100 p-2 xl:pr-6">
-					<SearchIcon className="h-6 text-gray-600" />
+				<div className="flex ml-2 items-center rounded-full bg-gray-100 dark:bg-icon-gray p-2 xl:pr-6">
+					<SearchIcon className="h-6 text-gray-600 dark:text-search-color" />
 					<input
-						className="hidden lg:inline-flex ml-2 items-center bg-transparent outline-none placeholder-gray-500 flex-shrink"
+						className="hidden lg:inline-flex ml-2 items-center bg-transparent outline-none placeholder-gray-500 dark:placeholder-gray-400 dark:text-text-color flex-shrink"
 						type="text"
 						placeholder="Search Facebook"
 					/>
@@ -64,10 +65,14 @@ const Header = () => {
 						layout="fixed"
 						alt=""
 					/>
-					<p className="hidden xl:flex whitespace-nowrap font-semibold pr-3">
+					<p className="hidden xl:flex whitespace-nowrap dark:text-text-color font-semibold pr-3">
 						{session.user.name}
 					</p>
-					<ViewGridIcon className="icon" />
+					{darkStatus ? (
+						<SunIcon className="icon" onClick={() => dark()} />
+					) : (
+						<MoonIcon className="icon" onClick={() => dark()} />
+					)}
 					<ChatIcon className="icon" />
 					<BellIcon className="icon" />
 					<ChevronDownIcon className="icon" />

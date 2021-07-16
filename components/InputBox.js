@@ -77,7 +77,7 @@ const InputBox = () => {
 	};
 
 	return (
-		<div className="lg:w-11/12 mx-auto bg-white p-2 rounded-2xl shadow-md text-gray-500 font-medium mt-4">
+		<div className="lg:w-11/12 mx-auto bg-white p-2 dark:bg-post-gray rounded-2xl shadow-md text-gray-500 font-medium mt-4">
 			<div className="flex space-x-4 p-4 items-center">
 				<Image
 					className="rounded-full"
@@ -89,7 +89,7 @@ const InputBox = () => {
 				/>
 				<form className="flex flex-1">
 					<input
-						className="rounded-full h-12 bg-gray-100 flex-grow px-5 focus:outline-none"
+						className="rounded-full h-12 text-text-color bg-gray-100 dark:bg-icon-gray flex-grow px-5 focus:outline-none"
 						type="text"
 						ref={inputRef}
 						placeholder={`What's on your mind, ${session.user.name}`}
@@ -115,7 +115,7 @@ const InputBox = () => {
 					</div>
 				)}
 			</div>
-			<div className="flex justify-evenly p-3 border-t">
+			<div className="flex justify-evenly p-3 border-t dark:text-gray-400 dark:border-gray-400 ">
 				<div className="inputIcon">
 					<VideoCameraIcon className="h-7 text-red-500" />
 					<p className="h-7 text-xs sm:text-sm xl:text-base">

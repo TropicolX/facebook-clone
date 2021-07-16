@@ -1,4 +1,5 @@
 import { getSession } from "next-auth/client";
+import { useState } from "react";
 import Head from "next/head";
 import Header from "../components/Header";
 import Login from "../components/Login";
@@ -8,17 +9,27 @@ import Widgets from "../components/Widgets";
 import { db } from "../firebase";
 
 export default function Home({ session, posts }) {
+	const [dark, setDark] = useState(false);
+
 	if (!session) return <Login />;
 
+	const darkToggle = () => {
+		setDark(!dark);
+	};
+
 	return (
-		<div className="lg:h-screen bg-gray-100 overflow-hidden">
+		<div
+			className={`lg:h-screen bg-gray-100 overflow-hidden ${
+				dark && "dark"
+			}`}
+		>
 			<Head>
 				<title>Facebook Clone</title>
 			</Head>
 
-			<Header />
+			<Header dark={darkToggle} darkStatus={dark} />
 
-			<main className="flex">
+			<main className="flex dark:bg-body-gray dark:text-text-color">
 				<Sidebar />
 				<Feed posts={posts} />
 				<Widgets />
