@@ -18,11 +18,7 @@ export default function Home({ session, posts }) {
 	};
 
 	return (
-		<div
-			className={`lg:h-screen bg-gray-100 overflow-hidden ${
-				dark && "dark"
-			}`}
-		>
+		<div className={`bg-gray-100 ${dark && "dark"}`}>
 			<Head>
 				<title>Facebook Clone</title>
 			</Head>

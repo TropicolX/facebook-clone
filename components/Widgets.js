@@ -14,8 +14,8 @@ const contacts = [
 
 const Widgets = () => {
 	return (
-		<div className="hidden xl:flex flex-col w-80 p-2 mt-5">
-			<div className="flex justify-between items-center text-gray-500 mb-5">
+		<div className="hidden sticky h-screen top-16 xl:flex flex-col w-80 p-2">
+			<div className="flex justify-between items-center text-gray-500 mt-5 mb-5">
 				<h2 className="text-xl">Contacts</h2>
 				<div className="flex space-x-2">
 					<VideoCameraIcon className="h-6" />

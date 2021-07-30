@@ -74,7 +74,7 @@ const Header = ({ dark, darkStatus }) => {
 						<MoonIcon className="icon" onClick={() => dark()} />
 					)}
 					<ChatIcon className="icon" />
-					<BellIcon className="icon" />
+					<BellIcon className="hidden sm:flex sm:icon" />
 					<ChevronDownIcon className="icon" />
 				</div>
 			</div>

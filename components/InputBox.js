@@ -78,31 +78,41 @@ const InputBox = () => {
 
 	return (
 		<div className="lg:w-11/12 mx-auto bg-white p-2 dark:bg-post-gray rounded-2xl shadow-md text-gray-500 font-medium mt-4">
-			<div className="flex space-x-4 p-4 items-center">
-				<Image
-					className="rounded-full"
-					src={session.user.image}
-					width={40}
-					height={40}
-					layout="fixed"
-					alt=""
-				/>
-				<form className="flex flex-1">
-					<input
-						className="rounded-full h-12 text-text-color bg-gray-100 dark:bg-icon-gray flex-grow px-5 focus:outline-none"
-						type="text"
-						ref={inputRef}
-						placeholder={`What's on your mind, ${session.user.name}`}
+			<div className="flex flex-col relative space-y-4 py-1 px-4 sm:space-y-0 sm:space-x-4 sm:p-4 items-center">
+				<div
+					className={`flex space-x-4 items-center sm:w-full sm:mb-0 ${
+						!imageToPost && "mb-16"
+					}`}
+				>
+					<Image
+						className="rounded-full"
+						src={session.user.image}
+						width={40}
+						height={40}
+						layout="fixed"
+						alt=""
 					/>
-					<button hidden type="submit" onClick={sendPost}>
-						Submit
-					</button>
-				</form>
+					<form className="flex flex-1">
+						<input
+							className="rounded-full h-12 dark:text-text-color bg-gray-100 dark:bg-icon-gray flex-grow py-0 px-2 sm:px-5 focus:outline-none"
+							type="text"
+							ref={inputRef}
+							placeholder={`What's on your mind, ${session.user.name}?`}
+						/>
+						<button
+							className="block sm:hidden absolute bottom-5 bg-blue-500 text-white py-2 px-6 rounded-full"
+							type="submit"
+							onClick={sendPost}
+						>
+							Post
+						</button>
+					</form>
+				</div>
 
 				{imageToPost && (
 					<div
 						onClick={removeImage}
-						className="flex flex-col filter hover:brightness-110 transition duration-150 transform hover:scale-105 cursor-pointer"
+						className="flex flex-col filter hover:brightness-110 transition duration-150 transform hover:scale-105 cursor-pointer mr-auto"
 					>
 						<img
 							src={imageToPost}
